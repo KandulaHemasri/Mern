@@ -81,48 +81,15 @@ function App() {
     localStorage.setItem('cart', JSON.stringify(cart));
   }, [cart]);
   
-  // Authentication functions
-
-  // const API_URL = 'http://localhost:5000';
-   const API_URL = 'https://mern-j9q7.onrender.com';
-
-  // const handleLogin = (e) => {
-  //   e.preventDefault();
-  //   // Simple mock login (in a real app, this would call an API)
-  //   setUser({ name: email.split('@')[0], email });
-  //   setIsLoggedIn(true);
-  //   localStorage.setItem('user', JSON.stringify({ name: email.split('@')[0], email }));
-  //   setShowAuth(false);
-  //   resetAuthForm();
-  // };
   
-
-
-  const handleLogin = async (e) => {
+  // Authentication function
+  const handleLogin = (e) => {
     e.preventDefault();
-    try {
-      const response = await fetch(`${API_URL}/api/login`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email, password }),
-      });
-      const data = await response.json();
-      if (response.ok) {
-        setUser(data.user);
-        setIsLoggedIn(true);
-        localStorage.setItem('user', JSON.stringify(data.user));
-        localStorage.setItem('token', data.token);
-        setShowAuth(false);
-        resetAuthForm();
-      } else {
-        alert(data.message);
-      }
-    } catch (error) {
-      alert("Error logging in");
-      console.error(error);
-    }
+    setUser({ name: email.split('@')[0], email });
+    setIsLoggedIn(true);
+    localStorage.setItem('user', JSON.stringify({ name: email.split('@')[0], email }));
+    setShowAuth(false);
+    resetAuthForm();
   };
 
   
