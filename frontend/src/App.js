@@ -83,7 +83,8 @@ function App() {
   
   // Authentication functions
 
-  const API_URL = 'http://localhost:5000';
+  // const API_URL = 'http://localhost:5000';
+   const API_URL = 'https://mern-j9q7.onrender.com';
 
   // const handleLogin = (e) => {
   //   e.preventDefault();
